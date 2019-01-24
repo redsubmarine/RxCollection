@@ -34,7 +34,8 @@ extension SectionData: AnimatableSectionModelType {
 }
 
 enum CellData {
-    case sample(num: Int)
+    case none
+    case issue(issue: IssueDisplayable)
 }
 
 protocol CellStyle {
@@ -85,11 +86,11 @@ protocol HasCollectionData {
 
 class CellStyleBundle<T>: CellStyle {
     let type: Cell.Type
-    let cellParam: T?
+    let parameters: T?
     
-    init(type: Cell.Type, cellParameter: T? = nil) {
+    init(type: Cell.Type, parameters: T? = nil) {
         self.type = type
-        self.cellParam = cellParameter
+        self.parameters = parameters
     }
     
     var cellType: Cell.Type {
