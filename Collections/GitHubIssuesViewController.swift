@@ -30,14 +30,6 @@ class GitHubIssuesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //https://api.github.com/
-        // /repos/firebase/firebase-ios-sdk/issues
-        let server = Server(baseURL: "https://api.github.com")
-        let request = GetIssuesRequest()
-        _ = server.request(request)
-            .take(1)
-            .subscribe(onNext: { issues in
-                
-            })
+        viewModel.getIssues()
     }
 }

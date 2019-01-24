@@ -16,7 +16,7 @@ class Server {
     private let httpQueue = DispatchQueue(label: "http_queue")
     let baseURL: String
     
-    init(baseURL: String) {
+    init(baseURL: String = "https://api.github.com") {
         self.baseURL = baseURL
     }
 

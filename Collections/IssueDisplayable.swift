@@ -9,6 +9,7 @@
 import Foundation
 
 protocol IssueDisplayable {
+    var id: Id.Issue { get }
     var title: String { get }
     var owner: String { get }
 }

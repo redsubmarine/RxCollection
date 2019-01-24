@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Issue: Identify {
+struct Issue: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -22,5 +22,11 @@ struct Issue: Identify {
         let idNum = try values.decode(Int.self, forKey: .id)
         self.id = "\(idNum)"
         self.title = try values.decode(String.self, forKey: .title)
+    }
+}
+
+extension Issue: IssueDisplayable {
+    var owner: String {
+        return "Owner"
     }
 }

@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let issuesViewModel = GitHubIssuesViewViewModel()
+        let server = Server()
+        let issuesViewModel = GitHubIssuesViewViewModel(server: server, database: publicDB)
         let issuesViewController = GitHubIssuesViewController.newInstance(with: issuesViewModel)
         
         window?.rootViewController = issuesViewController
@@ -27,3 +28,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+let publicDB = CoreDatabase()

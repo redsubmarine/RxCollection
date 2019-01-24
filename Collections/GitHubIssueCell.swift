@@ -23,19 +23,24 @@ class GitHubIssueCell: UITableViewCell, Cell {
     
     var presenter: UIViewController?
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var ownerLabel: UILabel!
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
     }
     
     func apply(cellInfo: CellInfo) {
-//        guard case let .issue(issue) = cellInfo.data else {
-//            fatalError()
-//        }
+        guard case let .issue(issue) = cellInfo.data else {
+            fatalError()
+        }
+        titleLabel.text = issue.title
+        ownerLabel.text = issue.owner
     }
     
     static func cellHeight(info: CellInfo) -> CGFloat {
-        return 44.0
+        return 60.0
     }
     
 }
