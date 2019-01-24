@@ -8,27 +8,38 @@
 
 import XCTest
 @testable import Collections
+import RxSwift
+import RxCocoa
 
 class CollectionsTests: XCTestCase {
 
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        let dic = BehaviorRelay<[String: String]>(value: [:])
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        let dicObservable = dic.asObservable()
+        
+        _ = dicObservable.map({ $0["0"] })
+            .subscribe({
+                print(" \($0)")
+            })
+        
+        
+        var newDic = dic.value
+        newDic["0"] = "hello"
+        dic.accept(newDic)
+        
+        newDic = dic.value
+        newDic["0"] = "world"
+        dic.accept(newDic)
     }
 
 }

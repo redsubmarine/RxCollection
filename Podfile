@@ -7,6 +7,9 @@ target 'Collections' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod 'RxOptional'
+  pod 'RxAlamofire'
+  pod 'RxCodable'
 
   # Pods for Collections
 

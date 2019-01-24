@@ -10,13 +10,9 @@ import UIKit
 import class RxSwift.DisposeBag
 
 class GitHubIssueCell: UITableViewCell, Cell {
-    enum IssueStyle {
-        case new
-        case normal
-    }
     
-    class func bundle(style: IssueStyle) -> CellStyleBundle<IssueStyle> {
-        return CellStyleBundle(type: self, parameters: style)
+    class func bundle() -> CellStyleBundle<Void> {
+        return CellStyleBundle(type: self)
     }
     
     static var nibName: String? = "GitHubIssueCell"
@@ -33,18 +29,9 @@ class GitHubIssueCell: UITableViewCell, Cell {
     }
     
     func apply(cellInfo: CellInfo) {
-        if let style = cellInfo.style as? CellStyleBundle<IssueStyle> {
-            if let param = style.parameters {
-                switch param {
-                case .new:
-                    contentView.backgroundColor = .red
-                    print(" 11")
-                case .normal:
-                    contentView.backgroundColor = .blue
-                    print(" 22")
-                }
-            }
-        }
+//        guard case let .issue(issue) = cellInfo.data else {
+//            fatalError()
+//        }
     }
     
     static func cellHeight(info: CellInfo) -> CGFloat {

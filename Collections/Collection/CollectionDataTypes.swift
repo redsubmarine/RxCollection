@@ -50,11 +50,13 @@ protocol Cell: class {
     var presenter: UIViewController? { get set }
     
     func apply(cellInfo: CellInfo)
+
     static func cellHeight(info: CellInfo) -> CGFloat
     static func cellSize(info: CellInfo) -> CGSize
 }
 
 extension Cell {
+    
     static func cellHeight(info: CellInfo) -> CGFloat {
         return 0.0
     }

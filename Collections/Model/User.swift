@@ -1,5 +1,5 @@
 //
-//  IssueDisplayable.swift
+//  User.swift
 //  Collections
 //
 //  Created by 양원석 on 24/01/2019.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol IssueDisplayable {
-    var title: String { get }
-    var owner: String { get }
+struct User: Identify {
+    var id: Id.User
 }

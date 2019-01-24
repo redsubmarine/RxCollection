@@ -16,7 +16,7 @@ struct GitHubIssuesViewViewModel: HasCollectionData {
         dataSource = .just([
             SectionData(id: "issues", items: Array(0...10)
                 .map({
-                CellInfo(id: "\($0)", data: .none, style: GitHubIssueCell.bundle(style: .normal))
+                CellInfo(id: "\($0)", data: .none, style: GitHubIssueCell.bundle())
                 }))
             ])
     }
