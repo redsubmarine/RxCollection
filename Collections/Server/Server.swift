@@ -12,7 +12,7 @@ import RxAlamofire
 import Alamofire
 import RxCodable
 
-class Server {
+struct Server {
     private let httpQueue = DispatchQueue(label: "http_queue")
     let baseURL: String
     
@@ -26,12 +26,13 @@ class Server {
         guard let url = URL(string: urlString) else { return .never() }
         
         return RxAlamofire.requestJSON(request.method, url,
-                                parameters: request.parameters,
-                                encoding: request.parameterEncoding,
-                                headers: request.headers)
+                                       parameters: request.parameters,
+                                       encoding: request.parameterEncoding,
+                                       headers: request.headers)
             .observeOn(ConcurrentDispatchQueueScheduler(queue: httpQueue))
-            .map({ try JSONSerialization.data(withJSONObject: $0.1, options: .sortedKeys) })
+            .map({ try JSONSerialization.data(withJSONObject: $0.1, options: []) })
             .map(T.ResponseType.self, using: JSONDecoder())
+            
     }
     
 }

@@ -34,8 +34,5 @@ struct GitHubIssuesViewViewModel: HasCollectionData {
             .take(1)
             .map({ $0 as [IssueDisplayable] })
             .bind(to: issues)
-//            .subscribe(onNext: { issues in
-//                issues.forEach(self.database.update)
-//            })
     }
 }

@@ -117,6 +117,26 @@
 			path = Server;
 			sourceTree = "<group>";
 		};
+		3401B98A21FAA48900001BF8 /* GitHubIssues */ = {
+			isa = PBXGroup;
+			children = (
+				3401B98B21FAA49400001BF8 /* ViewModel */,
+				3401B96321F95E3F00001BF8 /* GitHubIssuesViewController.swift */,
+				3401B96421F95E3F00001BF8 /* GitHubIssuesViewController.xib */,
+				3401B96921F961DE00001BF8 /* GitHubIssueCell.swift */,
+				3401B96A21F961DE00001BF8 /* GitHubIssueCell.xib */,
+			);
+			path = GitHubIssues;
+			sourceTree = "<group>";
+		};
+		3401B98B21FAA49400001BF8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3401B96721F95EE200001BF8 /* GitHubIssuesViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		9D30944D2191A10F00F890CB = {
 			isa = PBXGroup;
 			children = (
@@ -146,11 +166,7 @@
 				3401B96D21F9629800001BF8 /* IssueDisplayable.swift */,
 				C49B4CA921C1F8F400E2084B /* Collection */,
 				9D3094592191A10F00F890CB /* AppDelegate.swift */,
-				3401B96321F95E3F00001BF8 /* GitHubIssuesViewController.swift */,
-				3401B96421F95E3F00001BF8 /* GitHubIssuesViewController.xib */,
-				3401B96921F961DE00001BF8 /* GitHubIssueCell.swift */,
-				3401B96A21F961DE00001BF8 /* GitHubIssueCell.xib */,
-				3401B96721F95EE200001BF8 /* GitHubIssuesViewViewModel.swift */,
+				3401B98A21FAA48900001BF8 /* GitHubIssues */,
 				9D3094602191A11000F890CB /* Assets.xcassets */,
 				9D3094622191A11000F890CB /* LaunchScreen.storyboard */,
 				9D3094652191A11000F890CB /* Info.plist */,
@@ -356,7 +372,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCodable/RxCodable.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -369,7 +384,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCodable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
