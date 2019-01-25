@@ -32,11 +32,19 @@ class GitHubIssueCell: UITableViewCell, Cell {
     }
     
     func apply(cellInfo: CellInfo) {
-        guard case let .issue(issue) = cellInfo.data else {
+        guard case let .issue(issueId) = cellInfo.data else {
             fatalError()
         }
-        titleLabel.text = issue.title
-        ownerLabel.text = issue.owner
+        
+        publicDB.observe(issueId: issueId)
+            .map({ $0?.title })
+            .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        publicDB.observe(issueId: issueId)
+            .map({ $0?.owner })
+            .bind(to: ownerLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     static func cellHeight(info: CellInfo) -> CGFloat {

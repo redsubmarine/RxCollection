@@ -14,7 +14,7 @@ struct GitHubIssuesViewViewModel: HasCollectionData {
     var dataSource: Observable<[SectionData]>
     let server: Server
     let database: IssueDatabase
-    private let issues = BehaviorRelay<[IssueDisplayable]>(value: [])
+    private let issues = BehaviorRelay<[Id.Issue]>(value: [])
     
     init(server: Server, database: IssueDatabase) {
         self.server = server
@@ -22,8 +22,8 @@ struct GitHubIssuesViewViewModel: HasCollectionData {
         
         dataSource = issues.asObservable()
             .map({ issues in
-                [SectionData(id: "issues", items: issues.map({ issue in
-                    CellInfo(id: issue.id, data: .issue(issue: issue), style: GitHubIssueCell.bundle())
+                [SectionData(id: "issues", items: issues.map({ issueId in
+                    CellInfo(id: issueId, data: .issue(issueId: issueId), style: GitHubIssueCell.bundle())
                 }))]
             })
     }
@@ -32,7 +32,8 @@ struct GitHubIssuesViewViewModel: HasCollectionData {
         let request = GetIssuesRequest()
         _ = server.request(request)
             .take(1)
-            .map({ $0 as [IssueDisplayable] })
+            .do(onNext: database.update)
+            .map({ $0.map({ $0.id }) })
             .bind(to: issues)
     }
 }

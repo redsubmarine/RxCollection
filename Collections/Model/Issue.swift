@@ -17,6 +17,11 @@ struct Issue: Decodable {
     var id: Id.Issue
     var title: String
     
+    init(id: Id.Issue, title: String) {
+        self.id = id
+        self.title = title
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let idNum = try values.decode(Int.self, forKey: .id)

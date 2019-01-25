@@ -160,11 +160,11 @@
 		9D3094582191A10F00F890CB /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				C49B4CA921C1F8F400E2084B /* Collection */,
 				3401B97921F9A38400001BF8 /* Server */,
 				3401B97221F97E8B00001BF8 /* Model */,
 				3401B96F21F97E3900001BF8 /* Database */,
 				3401B96D21F9629800001BF8 /* IssueDisplayable.swift */,
-				C49B4CA921C1F8F400E2084B /* Collection */,
 				9D3094592191A10F00F890CB /* AppDelegate.swift */,
 				3401B98A21FAA48900001BF8 /* GitHubIssues */,
 				9D3094602191A11000F890CB /* Assets.xcassets */,

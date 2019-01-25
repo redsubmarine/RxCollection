@@ -21,6 +21,7 @@ struct Id {
 
 protocol IssueDatabase {
     func update(issue: Issue)
+    func update(issues: [Issue])
     func observe(issueId: Id.Issue) -> Observable<Issue?>
     func issue(id: Id.Issue) -> Issue?
     func removeAllIssues()
@@ -44,6 +45,10 @@ extension CoreDatabase: IssueDatabase {
         var oldIssues = issues.value
         oldIssues[issue.id] = issue
         issues.accept(oldIssues)
+    }
+    
+    func update(issues: [Issue]) {
+        issues.forEach(update)
     }
     
     func observe(issueId: Id.Issue) -> Observable<Issue?> {

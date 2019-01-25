@@ -35,7 +35,7 @@ extension SectionData: AnimatableSectionModelType {
 
 enum CellData {
     case none
-    case issue(issue: IssueDisplayable)
+    case issue(issueId: Id.Issue)
 }
 
 protocol CellStyle {

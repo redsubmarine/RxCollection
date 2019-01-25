@@ -32,7 +32,6 @@ struct Server {
             .observeOn(ConcurrentDispatchQueueScheduler(queue: httpQueue))
             .map({ try JSONSerialization.data(withJSONObject: $0.1, options: []) })
             .map(T.ResponseType.self, using: JSONDecoder())
-            
     }
     
 }
